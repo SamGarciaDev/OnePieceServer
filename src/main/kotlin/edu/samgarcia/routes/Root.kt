@@ -8,7 +8,7 @@ import io.ktor.routing.*
 fun Routing.root() {
     get("/") {
         call.respond(
-            message = "Welcome to One Piece API",
+            message = "Welcome to the One Piece API 👒",
             status = HttpStatusCode.OK
         )
     }

@@ -9,7 +9,6 @@ data class Character(
     val img: String,
     val about: String,
     val rating: Double,
-    val firstAppearance: Int,
     val devilFruits: List<String>,
     val family: List<String>
 )
