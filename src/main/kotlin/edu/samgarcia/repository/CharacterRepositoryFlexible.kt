@@ -1,21 +1,34 @@
 package edu.samgarcia.repository
 
+import edu.samgarcia.StringsXML
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.models.Character
+import kotlin.math.ceil
+import kotlin.streams.toList
 
-const val PREV_PAGE_KEY = "prevPage"
-const val NEXT_PAGE_KEY = "nextPage"
 
 class CharacterRepositoryImpl: CharacterRepository {
-    override val characters: Map<Int, List<Character>> by lazy {
-        mapOf(
-            1 to page1,
-            2 to page2,
-            3 to page3
-        )
+    companion object {
+        private const val CHARS_PER_PAGE = 3
+        private const val PREV_PAGE_KEY = "prevPage"
+        private const val NEXT_PAGE_KEY = "nextPage"
     }
 
-    override val page1 = listOf(
+    private val pagination: Map<Int, List<Character>> by lazy {
+        val map = mutableMapOf<Int, ArrayList<Character>>()
+
+        for (i in 1 .. getNumPages()) {
+            map[i] = arrayListOf()
+        }
+
+        for (i in characters.indices) {
+            map[i/CHARS_PER_PAGE + 1]!!.add(characters[i])
+        }
+
+        map
+    }
+
+    private val characters = listOf(
         Character(
             id = 1,
             name = "Monkey D. Luffy",
@@ -63,10 +76,7 @@ class CharacterRepositoryImpl: CharacterRepository {
                 "Gura Gura no Mi"
             ),
             family = emptyList()
-        )
-    )
-
-    override val page2 = listOf(
+        ),
         Character(
             id = 4,
             name = "Kaidou",
@@ -103,10 +113,7 @@ class CharacterRepositoryImpl: CharacterRepository {
             rating = 5.0,
             devilFruits = emptyList(),
             family = emptyList()
-        )
-    )
-
-    override val page3 = listOf(
+        ),
         Character(
             id = 7,
             name = "Nico Robin",
@@ -144,32 +151,59 @@ class CharacterRepositoryImpl: CharacterRepository {
         )
     )
 
-    override suspend fun getAllCharacters(page: Int): ApiResponse {
+    override fun getNumPages(): Int {
+        return ceil(characters.size/CHARS_PER_PAGE.toDouble()).toInt()
+    }
+
+    override suspend fun getCharactersOnPage(page: Int): ApiResponse {
         return ApiResponse(
             success = true,
-            message = "ok",
+            message = StringsXML.OK,
             prevPage = calculatePage(page)[PREV_PAGE_KEY],
             nextPage = calculatePage(page)[NEXT_PAGE_KEY],
-            characters = characters[page]!!
+            characters = pagination[page]!!
         )
     }
 
-    override suspend fun searchHeroes(name: String): ApiResponse {
-        TODO("Not yet implemented")
+    override suspend fun searchHeroes(name: String?): ApiResponse {
+        return ApiResponse(
+            success = true,
+            message = StringsXML.OK,
+            characters = findCharacters(name)
+        )
     }
 
     private fun calculatePage(page: Int) : Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
 
-        if (page in 2..3) prevPage = prevPage?.minus(1)
-        if (page in 1..2) nextPage = nextPage?.plus(1)
-        if (page == 1) prevPage = null
-        if (page == 3) nextPage = null
+        val numPages = getNumPages()
+
+        if (numPages <= 1) return mapOf(
+            PREV_PAGE_KEY to null,
+            NEXT_PAGE_KEY to null
+        )
+
+        if (page in 2..numPages)
+            prevPage = prevPage?.minus(1)
+        if (page in 1..2)
+            nextPage = nextPage?.plus(1)
+        if (page == 1)
+            prevPage = null
+        if (page == numPages)
+            nextPage = null
 
         return mapOf(
             PREV_PAGE_KEY to prevPage,
             NEXT_PAGE_KEY to nextPage
         )
+    }
+
+    private fun findCharacters(name: String?) : List<Character> {
+        if (name.isNullOrBlank()) return emptyList()
+
+        return characters.stream()
+            .filter { character -> character.name.lowercase().contains(name.lowercase()) }
+            .toList()
     }
 }

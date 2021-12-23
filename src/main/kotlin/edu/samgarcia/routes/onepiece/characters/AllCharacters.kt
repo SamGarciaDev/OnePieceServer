@@ -16,9 +16,8 @@ fun Route.getAllCharacters() {
     get("/onepiece/characters") {
         try {
             val page = call.request.queryParameters["page"]?.toInt() ?: 1
-            require(page in 1..3)
-
-            val apiResponse = characterRepo.getAllCharacters(page)
+            require(page in 1..characterRepo.getNumPages())
+            val apiResponse = characterRepo.getCharactersOnPage(page)
 
             call.respond(
                 message = apiResponse,
@@ -26,7 +25,7 @@ fun Route.getAllCharacters() {
             )
         } catch (e: NumberFormatException) {
             call.respond(
-                message = ApiResponse(false, "Only numbers allowed for page query."),
+                message = ApiResponse(false, "Only numbers allowed for page query. 💥"),
                 status = HttpStatusCode.BadRequest
             )
         } catch (e: IllegalArgumentException) {
