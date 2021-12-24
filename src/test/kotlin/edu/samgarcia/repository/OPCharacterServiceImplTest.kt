@@ -1,10 +1,12 @@
 package edu.samgarcia.repository
 
+import org.junit.jupiter.api.Test
+
 import org.junit.jupiter.api.Assertions.*
 
-internal class CharacterRepositoryFlexibleTest {
+internal class OPCharacterServiceImplTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     fun getNumPages() {
     }
 }
