@@ -1,1 +1,1 @@
-rootProject.name = "edu.samgarcia.myfirstserver"
+rootProject.name = "edu.samgarcia.onepieceserver"
