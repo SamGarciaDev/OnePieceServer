@@ -1,24 +1,20 @@
-package edu.samgarcia
+package edu.samgarcia.routes
 
+import edu.samgarcia.StringsXML
+import edu.samgarcia.module
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
+import org.assertj.core.api.Assertions.assertThat
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class ApplicationTest {
+class RootTest {
     @Test
-    fun accessRootEndpoint() {
+    fun `access root endpoint, verify correct information`() {
         withTestApplication(moduleFunction = Application::module) {
             handleRequest(method = HttpMethod.Get, uri = "/").apply {
-                assertEquals(
-                    expected = HttpStatusCode.OK,
-                    actual = response.status()
-                )
-                assertEquals(
-                    expected = StringsXML.ROOT_ENDPOINT_MSG,
-                    actual = response.content
-                )
+                assertThat(response.status()).isEqualTo(HttpStatusCode.OK)
+                assertThat(response.content).isEqualTo(StringsXML.ROOT_ENDPOINT_MSG)
             }
         }
     }

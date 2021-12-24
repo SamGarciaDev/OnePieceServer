@@ -3,7 +3,7 @@ package edu.samgarcia.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Character(
+data class OPCharacter(
     val id: Int,
     val name: String,
     val img: String,

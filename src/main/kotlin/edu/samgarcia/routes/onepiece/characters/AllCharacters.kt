@@ -1,7 +1,8 @@
-package edu.samgarcia.routes
+package edu.samgarcia.routes.onepiece.characters
 
+import edu.samgarcia.StringsXML
 import edu.samgarcia.models.ApiResponse
-import edu.samgarcia.repository.CharacterRepository
+import edu.samgarcia.repository.OPCharacterService
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.response.*
@@ -11,13 +12,14 @@ import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 
 fun Route.getAllCharacters() {
-    val characterRepo: CharacterRepository by inject()
+    val characterService: OPCharacterService by inject()
 
     get("/onepiece/characters") {
         try {
             val page = call.request.queryParameters["page"]?.toInt() ?: 1
-            require(page in 1..characterRepo.getNumPages())
-            val apiResponse = characterRepo.getCharactersOnPage(page)
+            require(page in 1..characterService.getNumPages())
+
+            val apiResponse = characterService.getPage(page)
 
             call.respond(
                 message = apiResponse,
@@ -25,12 +27,12 @@ fun Route.getAllCharacters() {
             )
         } catch (e: NumberFormatException) {
             call.respond(
-                message = ApiResponse(false, "Only numbers allowed for page query. 💥"),
+                message = ApiResponse(false, StringsXML.ALL_CHARACTERS_INVALID_PAGE_QUERY_MSG),
                 status = HttpStatusCode.BadRequest
             )
         } catch (e: IllegalArgumentException) {
             call.respond(
-                message = ApiResponse(false, "Characters not found."),
+                message = ApiResponse(false, StringsXML.ALL_CHARACTERS_EMPTY_PAGE_MSG),
                 status = HttpStatusCode.BadRequest
             )
         }

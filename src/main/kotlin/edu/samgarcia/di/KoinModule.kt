@@ -1,11 +1,12 @@
 package edu.samgarcia.di
 
-import edu.samgarcia.repository.CharacterRepository
-import edu.samgarcia.repository.CharacterRepositoryImpl
+import edu.samgarcia.repository.OPCharacterRepo
+import edu.samgarcia.repository.OPCharacterRepoImpl
+import edu.samgarcia.repository.OPCharacterService
+import edu.samgarcia.repository.OPCharacterServiceImpl
 import org.koin.dsl.module
 
 val koinModule = module {
-    single<CharacterRepository> {
-        CharacterRepositoryImpl()
-    }
+    single<OPCharacterRepo> { OPCharacterRepoImpl() }
+    single<OPCharacterService> { OPCharacterServiceImpl(get()) }
 }
