@@ -1,3 +1,0 @@
-³2021-12-24 20:53:30.916 [Test worker] DEBUG Exposed - SELECT opchar.id, opchar."name", opchar.img, opchar.about, opchar.rating, opchar."devilFruits", opchar."family" FROM opchar
-u2021-12-24 20:53:32.810 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-_2021-12-24 20:53:32.836 [Test worker] INFO  ktor.test - Application started in 0.136 seconds.

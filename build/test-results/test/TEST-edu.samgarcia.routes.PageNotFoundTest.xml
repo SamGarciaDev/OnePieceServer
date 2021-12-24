@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.samgarcia.routes.PageNotFoundTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-24T19:53:32" hostname="DESKTOP-KVS1NQK" time="0.631">
-  <properties/>
-  <testcase name="access non existent endpoint, verify correct response" classname="edu.samgarcia.routes.PageNotFoundTest" time="0.631"/>
-  <system-out><![CDATA[2021-12-24 20:53:32.810 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-2021-12-24 20:53:32.836 [Test worker] INFO  ktor.test - Application started in 0.136 seconds.
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

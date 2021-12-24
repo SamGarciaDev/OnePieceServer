@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.samgarcia.repository.OPCharacterServiceImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-12-24T19:53:32" hostname="DESKTOP-KVS1NQK" time="0.466">
-  <properties/>
-  <testcase name="should return correct number of pages when the number of characters is 5" classname="edu.samgarcia.repository.OPCharacterServiceImplTest" time="0.453"/>
-  <testcase name="should return correct number of pages when the number of characters is zero" classname="edu.samgarcia.repository.OPCharacterServiceImplTest" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
