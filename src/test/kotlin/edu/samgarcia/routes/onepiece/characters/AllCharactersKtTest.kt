@@ -4,7 +4,6 @@ import edu.samgarcia.StringsXML
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.module
 import edu.samgarcia.repository.OPCharacterRepo
-import edu.samgarcia.repository.OPCharacterRepoImpl
 import edu.samgarcia.repository.OPCharacterService
 import edu.samgarcia.repository.OPCharacterServiceImpl
 import io.ktor.application.*
@@ -13,28 +12,14 @@ import io.ktor.server.testing.*
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.extension.RegisterExtension
-import org.koin.dsl.module
 import org.koin.test.KoinTest
 import org.koin.test.inject
-import org.koin.test.junit5.KoinTestExtension
 import kotlin.test.Test
 
 
 internal class AllCharactersKtTest : KoinTest {
     private val repo: OPCharacterRepo by inject()
     private val characterService: OPCharacterService by inject()
-
-    @JvmField
-    @RegisterExtension
-    val koinTestExtension = KoinTestExtension.create {
-        modules(
-            module {
-                single<OPCharacterRepo> { OPCharacterRepoImpl() }
-                single<OPCharacterService> { OPCharacterServiceImpl(get()) }
-            }
-        )
-    }
 
     @Suppress("KotlinConstantConditions")
     @Test

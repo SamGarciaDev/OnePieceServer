@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-12-24T15:38:55" hostname="DESKTOP-KVS1NQK" time="0.158">
+<testsuite name="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-12-24T19:36:58" hostname="DESKTOP-KVS1NQK" time="0.33">
   <properties/>
-  <testcase name="access all characters endpoint, query invalid page number, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.116"/>
-  <testcase name="access all characters endpoint, query out of bounds page number, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.013"/>
-  <testcase name="access all characters endpoint, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.012"/>
-  <testcase name="access all characters endpoint, query all pages, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.017"/>
+  <testcase name="access all characters endpoint, query invalid page number, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.065"/>
+  <testcase name="access all characters endpoint, query out of bounds page number, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.095"/>
+  <testcase name="access all characters endpoint, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.088"/>
+  <testcase name="access all characters endpoint, query all pages, verify correct response" classname="edu.samgarcia.routes.onepiece.characters.AllCharactersKtTest" time="0.082"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

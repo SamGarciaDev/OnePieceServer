@@ -1,2 +1,3 @@
-u2021-12-24 16:38:54.260 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-_2021-12-24 16:38:54.284 [Test worker] INFO  ktor.test - Application started in 0.192 seconds.
+³2021-12-24 20:36:55.351 [Test worker] DEBUG Exposed - SELECT opchar.id, opchar."name", opchar.img, opchar.about, opchar.rating, opchar."devilFruits", opchar."family" FROM opchar
+u2021-12-24 20:36:57.747 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+_2021-12-24 20:36:57.759 [Test worker] INFO  ktor.test - Application started in 0.157 seconds.

@@ -4,6 +4,9 @@ val logbackVersion: String by project
 val koinVersion: String by project
 val assertJVersion: String by project
 val mockitoVersion: String by project
+val junitVersion: String by project
+val exposedVersion: String by project
+val postgresqlVersion: String by project
 
 plugins {
     application
@@ -27,17 +30,20 @@ dependencies {
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("org.postgresql:postgresql:$postgresqlVersion")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.assertj:assertj-core:$assertJVersion")
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
     testImplementation("org.mockito:mockito-junit-jupiter:$mockitoVersion")
     testImplementation("org.mockito:mockito-inline:$mockitoVersion")
     testImplementation("io.insert-koin:koin-test:$koinVersion")
     testImplementation("io.insert-koin:koin-test-junit5:$koinVersion")
-
-    implementation("io.insert-koin:koin-ktor:$koinVersion")
-    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
 }
