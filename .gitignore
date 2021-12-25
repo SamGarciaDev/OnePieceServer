@@ -1,6 +1,4 @@
 # Default ignored files
 .idea/shelf/
 .idea/workspace.xml
-build/test-results/
-build/tmp/
-build/reports/
+build/
