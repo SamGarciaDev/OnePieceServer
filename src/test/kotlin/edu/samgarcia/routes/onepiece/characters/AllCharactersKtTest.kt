@@ -1,6 +1,6 @@
 package edu.samgarcia.routes.onepiece.characters
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.module
 import edu.samgarcia.repository.OPCharacterRepo
@@ -35,7 +35,7 @@ internal class AllCharactersKtTest : KoinTest {
 
                 val expected = ApiResponse(
                     success = true,
-                    message = StringsXML.OK,
+                    message = Strings.OK,
                     prevPage = if (expectedPage - 1 < 1) null else expectedPage - 1,
                     nextPage = if (expectedPage + 1 > characterService.getNumPages()) null else expectedPage + 1,
                     characters = repo.getAll().subList(0, OPCharacterServiceImpl.CHARACTERS_PER_PAGE)
@@ -62,7 +62,7 @@ internal class AllCharactersKtTest : KoinTest {
 
                     val expected = ApiResponse(
                         success = true,
-                        message = StringsXML.OK,
+                        message = Strings.OK,
                         prevPage = if (page - 1 < 1) null else page - 1,
                         nextPage = if (page + 1 > characterService.getNumPages()) null else page + 1,
                         characters = repo.getAll().subList(
@@ -90,7 +90,7 @@ internal class AllCharactersKtTest : KoinTest {
 
                 val expected = ApiResponse(
                     success = false,
-                    message = StringsXML.ALL_CHARACTERS_EMPTY_PAGE_MSG
+                    message = Strings.ALL_CHARACTERS_EMPTY_PAGE_MSG
                 )
 
                 val result = Json.decodeFromString<ApiResponse>(response.content.toString())
@@ -111,7 +111,7 @@ internal class AllCharactersKtTest : KoinTest {
 
                 val expected = ApiResponse(
                     success = false,
-                    message = StringsXML.ALL_CHARACTERS_INVALID_PAGE_QUERY_MSG
+                    message = Strings.ALL_CHARACTERS_INVALID_PAGE_QUERY_MSG
                 )
 
                 val result = Json.decodeFromString<ApiResponse>(response.content.toString())

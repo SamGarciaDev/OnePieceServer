@@ -1,6 +1,6 @@
 package edu.samgarcia.routes
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import edu.samgarcia.module
 import io.ktor.application.*
 import io.ktor.http.*
@@ -14,7 +14,7 @@ class RootTest {
         withTestApplication(moduleFunction = Application::module) {
             handleRequest(method = HttpMethod.Get, uri = "/").apply {
                 assertThat(response.status()).isEqualTo(HttpStatusCode.OK)
-                assertThat(response.content).isEqualTo(StringsXML.ROOT_ENDPOINT_MSG)
+                assertThat(response.content).isEqualTo(Strings.ROOT_ENDPOINT_MSG)
             }
         }
     }

@@ -1,6 +1,6 @@
 package edu.samgarcia.plugins
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -10,7 +10,7 @@ fun Application.configureStatusPages() {
     install(StatusPages) {
         status(HttpStatusCode.NotFound) {
             call.respond(
-                message = StringsXML.PAGE_NOT_FOUND,
+                message = Strings.PAGE_NOT_FOUND,
                 status = HttpStatusCode.NotFound
             )
         }

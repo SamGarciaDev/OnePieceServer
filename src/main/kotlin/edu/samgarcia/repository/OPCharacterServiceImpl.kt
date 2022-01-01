@@ -1,6 +1,6 @@
 package edu.samgarcia.repository
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.models.OPCharacter
 import kotlin.math.ceil
@@ -17,7 +17,7 @@ class OPCharacterServiceImpl(private val repo: OPCharacterRepo): OPCharacterServ
     override suspend fun getPage(page: Int): ApiResponse {
         return ApiResponse(
             success = true,
-            message = StringsXML.OK,
+            message = Strings.OK,
             prevPage = calculatePage(page)[PREV_PAGE_KEY],
             nextPage = calculatePage(page)[NEXT_PAGE_KEY],
             characters = pagination[page] ?: emptyList()
@@ -27,7 +27,7 @@ class OPCharacterServiceImpl(private val repo: OPCharacterRepo): OPCharacterServ
     override suspend fun searchCharacters(name: String?): ApiResponse {
         return ApiResponse(
             success = true,
-            message = StringsXML.OK,
+            message = Strings.OK,
             characters = findCharacters(name)
         )
     }

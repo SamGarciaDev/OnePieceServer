@@ -1,6 +1,6 @@
 package edu.samgarcia.routes.onepiece.characters
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.repository.OPCharacterService
 import io.ktor.application.*
@@ -27,12 +27,12 @@ fun Route.getAllCharacters() {
             )
         } catch (e: NumberFormatException) {
             call.respond(
-                message = ApiResponse(false, StringsXML.ALL_CHARACTERS_INVALID_PAGE_QUERY_MSG),
+                message = ApiResponse(false, Strings.ALL_CHARACTERS_INVALID_PAGE_QUERY_MSG),
                 status = HttpStatusCode.BadRequest
             )
         } catch (e: IllegalArgumentException) {
             call.respond(
-                message = ApiResponse(false, StringsXML.ALL_CHARACTERS_EMPTY_PAGE_MSG),
+                message = ApiResponse(false, Strings.ALL_CHARACTERS_EMPTY_PAGE_MSG),
                 status = HttpStatusCode.BadRequest
             )
         }

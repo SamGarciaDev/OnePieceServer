@@ -1,6 +1,6 @@
 package edu.samgarcia.routes
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import io.ktor.server.testing.*
 import kotlin.test.Test
 import edu.samgarcia.module
@@ -14,7 +14,7 @@ class PageNotFoundTest {
         withTestApplication(moduleFunction = Application::module) {
             handleRequest(method = HttpMethod.Get, uri = "/404").apply {
                 assertThat(response.status()).isEqualTo(HttpStatusCode.NotFound)
-                assertThat(response.content).isEqualTo(StringsXML.PAGE_NOT_FOUND)
+                assertThat(response.content).isEqualTo(Strings.PAGE_NOT_FOUND)
             }
         }
     }

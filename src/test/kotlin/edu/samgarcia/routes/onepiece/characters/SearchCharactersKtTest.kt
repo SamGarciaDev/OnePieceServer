@@ -1,6 +1,6 @@
 package edu.samgarcia.routes.onepiece.characters
 
-import edu.samgarcia.StringsXML
+import edu.samgarcia.Strings
 import edu.samgarcia.models.ApiResponse
 import edu.samgarcia.module
 import edu.samgarcia.repository.OPCharacterRepo
@@ -28,7 +28,7 @@ class SearchCharactersKtTest : KoinTest {
 
                     val expected = ApiResponse(
                         success = true,
-                        message = StringsXML.OK,
+                        message = Strings.OK,
                         characters = repo.getAll().stream()
                             .filter { c -> c.name.lowercase().contains(character.name.lowercase()) }
                             .toList()
@@ -50,7 +50,7 @@ class SearchCharactersKtTest : KoinTest {
 
                 val expected = ApiResponse(
                     success = true,
-                    message = StringsXML.OK,
+                    message = Strings.OK,
                     characters = emptyList()
                 )
 
