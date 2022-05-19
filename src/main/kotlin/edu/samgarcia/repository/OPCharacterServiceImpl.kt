@@ -20,7 +20,8 @@ class OPCharacterServiceImpl(private val repo: OPCharacterRepo): OPCharacterServ
             message = Strings.OK,
             prevPage = calculatePage(page)[PREV_PAGE_KEY],
             nextPage = calculatePage(page)[NEXT_PAGE_KEY],
-            characters = pagination[page] ?: emptyList()
+            characters = pagination[page] ?: emptyList(),
+            lastUpdated = System.currentTimeMillis()
         )
     }
 
