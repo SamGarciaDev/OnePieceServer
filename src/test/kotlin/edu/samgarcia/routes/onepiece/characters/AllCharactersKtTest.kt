@@ -60,6 +60,8 @@ internal class AllCharactersKtTest : KoinTest {
 
                     val charsPerPage = OPCharacterServiceImpl.CHARACTERS_PER_PAGE
 
+                    val result = Json.decodeFromString<ApiResponse>(response.content.toString())
+
                     val expected = ApiResponse(
                         success = true,
                         message = Strings.OK,
@@ -68,10 +70,10 @@ internal class AllCharactersKtTest : KoinTest {
                         characters = repo.getAll().subList(
                             fromIndex = (page - 1) * charsPerPage,
                             toIndex = (page - 1) * charsPerPage + charsPerPage
-                        )
+                        ),
+                        lastUpdated = result.lastUpdated
                     )
 
-                    val result = Json.decodeFromString<ApiResponse>(response.content.toString())
 
                     assertThat(result).isEqualTo(expected)
                 }
