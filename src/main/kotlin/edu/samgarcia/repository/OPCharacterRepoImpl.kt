@@ -64,7 +64,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 1,
                 name = "Monkey D. Luffy",
-                img = "/images/luffy.png",
+                img = "/images/luffy.jpeg",
                 about = "Monkey D. Luffy, also known as \" Straw Hat Luffy\" and commonly as \"Straw Hat\", is the main " +
                         "protagonist of the manga and anime, One Piece.",
                 origin = "East Blue",
@@ -135,7 +135,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 5,
                 name = "Trafalgar D. Water Law",
-                img = "/images/law.png",
+                img = "/images/law.jpg",
                 about = "Trafalgar D. Water Law, known by his epithet as the \"Surgeon of Death\", is a pirate from " +
                         "North Blue and the captain and doctor of the Heart Pirates.",
                 rating = 3.2,
@@ -149,7 +149,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 6,
                 name = "Roronoa Zoro",
-                img = "/images/zoro.png",
+                img = "/images/zoro.jpg",
                 about = "Roronoa Zoro, also known as \"Pirate Hunter\" Zoro, is the combatant of the Straw Hat Pirates, " +
                         "and one of their two swordsmen.",
                 rating = 4.5,
@@ -161,7 +161,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 7,
                 name = "Nico Robin",
-                img = "/images/robin.png",
+                img = "/images/robin.jpg",
                 about = "Nico Robin, also known by her epithet \"Devil Child\" and the \"Light of the Revolution\", is " +
                         "the archaeologist of the Straw Hat Pirates.",
                 rating = 2.2,
@@ -175,7 +175,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 8,
                 name = "Bellamy",
-                img = "/images/bellamy.png",
+                img = "/images/bellamy.jpeg",
                 about = "Bellamy the Hyena is the former captain of the Bellamy Pirates, and a former member of the " +
                         "Donquixote Pirates. After the Dressrosa Arc, he retired from piracy and became a dyer.",
                 rating = 1.0,
@@ -189,7 +189,7 @@ class OPCharacterRepoImpl : OPCharacterRepo {
             OPCharacter(
                 id = 9,
                 name = "Brook",
-                img = "/images/brook.png",
+                img = "/images/brook.jpeg",
                 about = "\"Soul King\" Brook is the musician of the Straw Hat Pirates, and one of their two swordsmen.",
                 rating = 3.9,
                 origin = "West Blue",
